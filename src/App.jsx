@@ -1,7 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Grid, Segment } from 'semantic-ui-react';
+import { Form, Button, Container, Grid, Segment, Menu } from 'semantic-ui-react';
 import "./App.css"
+
+
+
+const Navbar = () => (
+    <Menu inverted>
+        <Container>
+            <Menu.Item name="home" />
+            {/* Add more menu items as needed */}
+        </Container>
+    </Menu>
+);
+
+// Simple Footer
+const Footer = () => (
+    <div className="footer">
+        © {new Date().getFullYear()} Your Startup Name. All rights reserved.
+    </div>
+);
+
+
 
 const App = () => {
     const [question, setQuestion] = useState('');
@@ -29,6 +49,8 @@ const App = () => {
     };
 
     return (
+        <div>
+            <Navbar />
         <Container>
             {errorMessage && <Message negative>{errorMessage}</Message>}
 
@@ -58,6 +80,8 @@ const App = () => {
                 </Grid.Column>
             </Grid>
         </Container>
+            <Footer />
+        </div>
     );
 };
 

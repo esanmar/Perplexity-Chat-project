@@ -17,7 +17,7 @@ const Navbar = () => (
 // Simple Footer
 const Footer = () => (
     <div className="footer">
-        © {new Date().getFullYear()} Your Startup Name. All rights reserved.
+        © {new Date().getFullYear()} FreePlanTour. All rights reserved.
     </div>
 );
 
@@ -36,7 +36,7 @@ const App = () => {
         setQuestion('');
 
         try {
-            const response = await axios.post('http://localhost:3001/ask', { question });
+            const response = await axios.post('./ask', { question });
             setChatHistory(prevHistory => [...prevHistory, { role: 'bot', message: response.data.answer }]);
         } catch (error) {
             console.error('API Error:', error);

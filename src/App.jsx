@@ -36,7 +36,7 @@ const App = () => {
         setQuestion('');
 
         try {
-            const response = await axios.post('./ask', { question });
+            const response = await axios.post('https://perplexity-chat-project.vercel.app/ask', { question });
             setChatHistory(prevHistory => [...prevHistory, { role: 'bot', message: response.data.answer }]);
         } catch (error) {
             console.error('API Error:', error);
